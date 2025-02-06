@@ -22,3 +22,10 @@ SELECT nom
 	FROM competicions
 ORDER BY data_inici;
 ```
+4. Quin/s són els noms complerts dels jugadors que tenim el seu pes entrat a la BD. Ordena el resultat per el seu nom complet de forma ascendent.
+```sql
+SELECT nom_complet
+	FROM jugadors
+WHERE pes IS NOT NULL
+ORDER BY nom_complet ASC;
+```
