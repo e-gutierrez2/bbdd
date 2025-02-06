@@ -16,3 +16,9 @@ SELECT nom_complet
 ORDER BY CHAR_LENGTH(SUBSTRING_INDEX(nom_complet,',',1)) DESC
 LIMIT 1;
 ```
+3.Mostra el nom de les diferents competicions per ordre de celebració  (de més antigues a més noves)
+```sql
+SELECT nom
+	FROM competicions
+ORDER BY data_inici;
+```
