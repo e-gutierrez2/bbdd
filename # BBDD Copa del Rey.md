@@ -39,5 +39,8 @@ ORDER BY nom_complet ASC;
 6.Si sabem que l'extensió d'un domini són les últimes dos o tres lletres després del caràcter punt '.' situades al final de la URL d'un lloc web o d'un email. Per exemple '.com', '.net', '.cat', '.org', '.es',....
 Quins clubs no utilitzen la mateixa extensió de domini per l'email que per la seva web?
 ```sql
-
+SELECT nom, email, web
+	FROM clubs
+WHERE REGEXP_SUBSTR(email,'[.][a-z]{2,3}$') <> REGEXP_SUBSTR(web,'[.][a-z]{2,3}$')
+ORDER BY club_id;
 ```
