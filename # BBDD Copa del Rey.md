@@ -44,3 +44,22 @@ SELECT nom, email, web
 WHERE REGEXP_SUBSTR(email,'[.][a-z]{2,3}$') <> REGEXP_SUBSTR(web,'[.][a-z]{2,3}$')
 ORDER BY club_id;
 ```
+7.Digues el nom complet d'un dels jugadors que tenen el cognom més llarg.
+```sql
+SELECT nom_complet
+	FROM jugadors
+ORDER BY CHAR_LENGTH(SUBSTRING_INDEX(nom_complet,',',1)) DESC
+LIMIT 1;
+```
+8.Quina és la quanitat de partits que es van disputar l'any 2019?
+```sql
+SELECT COUNT(YEAR(data_hora)) AS quantitat
+	FROM partits
+WHERE YEAR(data_hora) = '2019';
+```
+9.En bàsquet els partits no poden acabar en empat i els volem detectar. Digues quins partits (mostrant només el partit_id) han acabat en empat.
+Ordena el resultat per partit_id
+```sql
+
+```
+
