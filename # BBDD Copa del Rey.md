@@ -29,3 +29,10 @@ SELECT nom_complet
 WHERE pes IS NOT NULL
 ORDER BY nom_complet ASC;
 ```
+5.Quin/s són els noms complerts dels jugadors que no tenim el seu pes entrat a la BD. Ordena el resultat per el seu nom complet de forma ascendent
+```sql
+SELECT nom_complet
+	FROM jugadors
+WHERE pes IS NULL
+ORDER BY nom_complet ASC;
+```
