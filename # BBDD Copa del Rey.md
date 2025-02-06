@@ -9,3 +9,10 @@ SELECT DISTINCT(lloc_naixement)
 WHERE LEFT(lloc_naixement, 1) = 'B'
 ORDER BY lloc_naixement;
 ```
+2.Volem el nom complet d’algun jugador que tingui el cognom més llarg. Cal considerar el cognom com l'string fins el càracter ','
+```sql
+SELECT nom_complet
+	FROM jugadors
+ORDER BY CHAR_LENGTH(SUBSTRING_INDEX(nom_complet,',',1)) DESC
+LIMIT 1;
+```
