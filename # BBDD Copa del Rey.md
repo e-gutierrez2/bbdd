@@ -60,6 +60,17 @@ WHERE YEAR(data_hora) = '2019';
 9.En bàsquet els partits no poden acabar en empat i els volem detectar. Digues quins partits (mostrant només el partit_id) han acabat en empat.
 Ordena el resultat per partit_id
 ```sql
-
+SELECT partit_id
+	FROM partits
+WHERE equip_local_punts = equip_visitant_punts AND partit_id IS NOT NULL
+ORDER BY partit_id;
 ```
-
+10.Quin és el nom complert i l'IMC(Índex de Massa Corporal)  dels jugadors amb identificadors 101 i 135 si sabem que:
+IMC (Relació pes/alçada) = Es calcula dividint el pes (Kg) pel quadrat de l'alçada (m) => pes/alçada.
+Quan no existeixi alguna de les dues variables, aquesta ha de prendre el valor 70 Kg pel que fa al pes i 1m amb 90cm pel que fa a l'alçada.
+Arrodoneix el resultat a 2 decimals.
+```sql
+SELECT nom_complet, ROUND(IFNULL(pes,70) / (IFNULL(alcada,1.9) * IFNULL(alcada,1.9)) , 2) AS IMC
+	FROM jugadors
+WHERE jugador_id = 101 OR jugador_id = 135;
+```
