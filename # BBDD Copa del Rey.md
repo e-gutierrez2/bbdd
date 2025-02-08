@@ -65,7 +65,7 @@ SELECT partit_id
 WHERE equip_local_punts = equip_visitant_punts AND partit_id IS NOT NULL
 ORDER BY partit_id;
 ```
-10.Quin és el nom complert i l'IMC(Índex de Massa Corporal)  dels jugadors amb identificadors 101 i 135 si sabem que:
+10.Quin és el nom complert i l'IMC(Índex de Massa Corporal)  dels jugadors amb identificadors 101 i 135 si sabem que.
 IMC (Relació pes/alçada) = Es calcula dividint el pes (Kg) pel quadrat de l'alçada (m) => pes/alçada.
 Quan no existeixi alguna de les dues variables, aquesta ha de prendre el valor 70 Kg pel que fa al pes i 1m amb 90cm pel que fa a l'alçada.
 Arrodoneix el resultat a 2 decimals.
