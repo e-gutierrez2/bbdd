@@ -74,3 +74,9 @@ SELECT nom_complet, ROUND(IFNULL(pes,70) / (IFNULL(alcada,1.9) * IFNULL(alcada,1
 	FROM jugadors
 WHERE jugador_id = 101 OR jugador_id = 135;
 ```
+11.Digues quants jugadors tenen tres vocals seguides en el seu nom complet.
+```sql
+SELECT COUNT(*) AS quants
+	FROM jugadors
+WHERE nom_complet REGEXP '[aeiouAEIOU]{3}';
+```
