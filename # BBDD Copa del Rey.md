@@ -96,7 +96,7 @@ WHERE twitter IS NULL OR ''
 ORDER BY nom_complet ASC;
 ```
 14.Quina és la quanitat de partits que es van disputar l'any 2017?
-```
+```sql
 SELECT COUNT(YEAR(data_hora)) AS quantitat
 	FROM partits
 WHERE YEAR(TRIM(data_hora)) = '2017';
