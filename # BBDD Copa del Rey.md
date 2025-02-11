@@ -88,3 +88,58 @@ SELECT nom, web
 	FROM clubs
 WHERE REGEXP_LIKE(web,'.cat$');
 ```
+13.Quin/s són els noms complerts dels jugadors que no tenim compte de twitter entrat a la BD. Ordena el resultat per el seu nom complet de forma ascendent
+```sql
+SELECT nom_complet
+	FROM jugadors
+WHERE twitter IS NULL OR ''
+ORDER BY nom_complet ASC;
+```
+14.Quina és la quanitat de partits que es van disputar l'any 2017?
+```
+SELECT COUNT(YEAR(data_hora)) AS quantitat
+	FROM partits
+WHERE YEAR(TRIM(data_hora)) = '2017';
+```
+15.Diques quins partits han acabat amb una diferència de punts superior a 10.  
+- Mostra el partit_id, la diferència de punts.  
+- Ordena el resultat per la diferència de punts de major a menor
+```sql
+SELECT partit_id , ABS(CAST(equip_local_punts AS SIGNED) - CAST(equip_visitant_punts AS SIGNED)) AS diferencia
+	FROM partits
+WHERE  ABS(CAST(equip_local_punts AS SIGNED) - CAST(equip_visitant_punts AS SIGNED)) > 10
+ORDER BY diferencia DESC;
+```
+16.Quants jugadors han nascut al mes de desembre
+```sql
+SELECT COUNT(MONTH(data_naixement)) AS qt_desembre
+	FROM jugadors
+WHERE MONTH(data_naixement) = 12;
+```
+17.Quin/s són els noms dels clubs que no tenim la seva web entrada a la BD? Ordena el resultat per el seu nom de forma ascendent.
+```sql
+SELECT nom
+	FROM clubs
+WHERE web IS NULL OR '';
+```
+18.Quines són les ciutats que alguna vegada s'hi ha celebrat la competició de la Copa del Rei de Bàsquet?  
+- Ordena el resultat per nom de ciutat.
+```
+SELECT ciutat
+	FROM competicions
+WHERE nom REGEXP 'Copa del Rei'
+ORDER BY ciutat ASC;
+```
+19.Al llarg de les diferents competicions. Quants partits s'han jugat al mes de març?
+```sql
+SELECT COUNT(*) AS quantitat
+	FROM partits
+WHERE MONTH(data_hora) = 3;
+```
+20.Digues el nom complet d'un dels jugadors que tenen el cognom més llarg.
+```sql
+SELECT nom_complet
+	FROM jugadors
+ORDER BY CHAR_LENGTH(SUBSTRING_INDEX(nom_complet,',',1)) DESC
+LIMIT 1;
+```
