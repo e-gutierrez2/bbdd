@@ -80,3 +80,11 @@ SELECT COUNT(*) AS quants
 	FROM jugadors
 WHERE nom_complet REGEXP '[aeiouAEIOU]{3}';
 ```
+12.Quins són els clubs que utilitzen el domini '.cat' a la seva web?  
+- Mostra el nom del club, i la seva web  
+- Ordena el resultat per club_id  
+```sql
+SELECT nom, web
+	FROM clubs
+WHERE REGEXP_LIKE(web,'.cat$');
+```
