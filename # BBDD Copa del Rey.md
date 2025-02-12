@@ -137,10 +137,3 @@ SELECT COUNT(*) AS quantitat
 	FROM partits
 WHERE MONTH(data_hora) = 3;
 ```
-20.Digues el nom complet d'un dels jugadors que tenen el cognom més llarg.
-```sql
-SELECT nom_complet
-	FROM jugadors
-ORDER BY CHAR_LENGTH(SUBSTRING_INDEX(nom_complet,',',1)) DESC
-LIMIT 1;
-```
