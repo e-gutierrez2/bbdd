@@ -125,7 +125,7 @@ WHERE web IS NULL OR '';
 ```
 18.Quines són les ciutats que alguna vegada s'hi ha celebrat la competició de la Copa del Rei de Bàsquet?  
 - Ordena el resultat per nom de ciutat.
-```
+```sql
 SELECT ciutat
 	FROM competicions
 WHERE nom REGEXP 'Copa del Rei'
