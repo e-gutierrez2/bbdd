@@ -86,7 +86,8 @@ WHERE nom_complet REGEXP '[aeiouAEIOU]{3}';
 ```sql
 SELECT nom, web
 	FROM clubs
-WHERE REGEXP_LIKE(web,'.cat$');
+WHERE REGEXP_LIKE(web,'.cat$')
+ORDER BY club_id;
 ```
 13.Quin/s són els noms complerts dels jugadors que no tenim compte de twitter entrat a la BD. Ordena el resultat per el seu nom complet de forma ascendent
 ```sql
